@@ -34,3 +34,5 @@ int main(){
 	//system("/usr/sbin/useradd -d /home/nuevo1 -m nuevo1 2> error.txt");
         printf("</body></html>\n");
 }
+
+
