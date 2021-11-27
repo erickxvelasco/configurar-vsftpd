@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #F0F8FF;">
+
+
+    <div class="">
+        <div class="card-header">
+            <div class="mt-0 mb-3 mx-2">
+                <div class="shadow-lg p-3 mb-3 bg-white rounded">
+                    <div class="row">
+                        <div class="col-10">
+                            <img src="/img/ftp.png" alt="..." class="img-thumbnail d-inline" style="width: 64px;">
+                            <h3 class="d-inline text-dark text-left">Configure su servidor FTP </h3>
+                        </div>
+                        <div class="col d-grid gap-4 ">
+                            <br><br>
+                            <button type="button" class="btn btn-success btn-lg fs-3"> Activo </button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary " href="#general">General</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary" href="#usuarios">Usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary" href="#anonymous">Anonymous</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary" href="#log">Log</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-secondary" href="#transferencia">Transferencia</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main class="card-body">
+            <div id="general" class="text-center bg-transparent">
+                <h5 class="card-title">
+                    #################### <br>
+                    # General Settings # <br>
+                    #################### <br>
+                </h5>
+                <div class="row mb-3">
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s1">
+                                <label class="form-check-label" for="s1">Habilitar escritura FTP(write_enable):</label>
+                            </div>
+                            <select class="form-select" id="t1">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s2">
+                                <label class="form-check-label" for="s2">Activar mensaje de directorio(dirmessage_enable):</label>
+                            </div>
+                            <select class="form-select" id="t2">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s3">
+                                <label class="form-check-label" for="s3">Definir un usuario unico(nopriv_user):</label>
+                            </div>
+                            <input class="form-control" type="text" value="ftpsecure" id="t3" disabled>
+                        </div>
+                    </div>
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s4">
+                                <label class="form-check-label" for="s4">Personalizar Banner(ftpd_banner):</label>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea" rows="4" id="t4"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s5">
+                                <label class="form-check-label" for="s5">Habilitar la opcion
+                                    recursiva "-R"(ls_recurse_enable):</label>
+                            </div>
+                            <select class="form-select" id="t5">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s6">
+                                <label class="form-check-label" for="s6">Excluir correos
+                                    electronicos(banned_email_file):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t6"
+                                value="/etc/vsftpd.banned_emails">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s7">
+                                <label class="form-check-label" for="s7">Mostrar informacion de
+                                    usuarios y grupos en listas de directorios(hide_ids):</label>
+                            </div>
+                            <select class="form-select" id="t7">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="usuarios" class="text-center bg-light">
+                <h5 class="card-title">
+                    ########################### <br>
+                    # Local FTP user Settings # <br>
+                    ########################### <br>
+                </h5>
+                <div class="row mb-3">
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s8">
+                                <label class="form-check-label" for="s8">Permitir que los usuarios locales inicien
+                                    sesion(local_enable):</label>
+                            </div>
+                            <select class="form-select" id="t8">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s9">
+                                <label class="form-check-label" for="s9">mascara predeterminada para usuarios locales 007(local_umask):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t9" value="022">
+                        </div>
+                    </div>
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <h6 class="bg-secondary text-white text-center">
+                                Especificar lista explicita de usuarios locales para hacer chroot
+                            </h6>
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s10">
+                                <label class="form-check-label" for="s10">chroot_local_user :</label>
+                            </div>
+                            <select class="form-select" id="t10">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s11">
+                                <label class="form-check-label" for="s11">chroot_list_enable:</label>
+                            </div>
+                            <select class="form-select" id="t11">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s12">
+                                <label class="form-check-label" for="s12">Especifique
+                                    chroot_list_file:</label>
+                            </div>
+                            <input type="text" class="form-control" id="t12"
+                                value="/etc/vsftpd.chroot_list">
+                        </div>
+                    </div>
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s13">
+                                <label class="form-check-label" for="s13">Realizar chroot con
+                                    credenciales originales (allow_root_squashed_chroot) :</label>
+                            </div>
+                            <select class="form-select" id="t13">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s14">
+                                <label class="form-check-label" for="s14"> Velocidad maxima de
+                                    transferencia de datos(local_max_rate):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t14" value="7200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="anonymous" class="text-center bg-transparent">
+                <h5 class="card-title">
+                    ############################## <br>
+                    # Anonymus FTP user Settings # <br>
+                    ############################## <br>
+                </h5>
+                <div class="row mb-3">
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s15">
+                                <label class="form-check-label" for="s15">Permitir ftp anonimo
+                                    ?(anonymous_enable):</label>
+                            </div>
+                            <select class="form-select" id="t15">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s16">
+                                <label class="form-check-label" for="s16"> Velocidad maxima de
+                                    transferencia de datos para anonymous (anon_max_rate):</label>
+                            </div>
+                            <input type="text" class="form-control" id="s16" value="7200">
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s17">
+                                <label class="form-check-label" for="s17">Anonymous solo podra descargar
+                                    archivos(anon_world_readable_only):</label>
+                            </div>
+                            <select class="form-select" id="t17">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s18">
+                                <label class="form-check-label" for="s18">Mascara predeterminadapara
+                                    anonymous(anon_umask):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t18" value="022">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s19">
+                                <label class="form-check-label" for="s19">Permitir que el usuario FTP
+                                    anónimo cargue archivos(anon_upload_enable):</label>
+                            </div>
+                            <select class="form-select" id="t19">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s20">
+                                <label class="form-check-label" for="s20">anonymous puede crear
+                                    nuevos directorios(anon_mkdir_write_enable):</label>
+                            </div>
+                            <select class="form-select" id="t20">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s21">
+                                <label class="form-check-label" for="s21">permitir que Anonymous
+                                    realicen otras operaciones de escritura,eliminación y cambio de
+                                    nombre(anon_other_write_enable):</label>
+                            </div>
+                            <select class="form-select" id="t21">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s22">
+                                <label class="form-check-label" for="s22">Hcer que los archivos
+                                    anonymous sean de propiedad de un usuario diferente(chown_uploads):</label>
+                            </div>
+                            <select class="form-select" id="t22a">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                            <input type="text" class="form-control" id="t22b" value="Whoever">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="log" class="text-center bg-light">
+                <h5 class="card-title">
+                    ################ <br>
+                    # Log Settings # <br>
+                    ################ <br>
+                </h5>
+                <div class="row mb-3">
+                    <div class="col-6 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s23">
+                                <label class="form-check-label" for="s23">Inicie sesión en el demonio
+                                    syslog(syslog_enable):</label>
+                            </div>
+                            <select class="form-select" id="t23">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s24">
+                                <label class="form-check-label" for="s24"> registrar todas las
+                                    solicitudes y respuestas de FTP(log_ftp_protocol):</label>
+                            </div>
+                            <select class="form-select" id="t24">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s25">
+                                <label class="form-check-label" for="s25">Activar el registro de cargas /
+                                    descargas(xferlog_enable):</label>
+                            </div>
+                            <select class="form-select" id="t25">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s26">
+                                <label class="form-check-label" for="s26">Archivo de registro(vsftpd_log_file):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t26" value="/var/log/vsftpd.log">
+                        </div>
+                    </div>
+                    <div class="col-6 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s27">
+                                <label class="form-check-label" for="s27">Archivo de registro en
+                                    formato ftpd xferlog estándar(xferlog_std_format):</label>
+                            </div>
+                            <select class="form-select" id="t27">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s28">
+                                <label class="form-check-label" for="s28">Archivo de registro
+                                    predeterminado(xferlog_file):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t28" value="/var/log/vsftpd.log">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s29">
+                                <label class="form-check-label" for="s29">Registro de estilo propio
+                                    de xferlog y vsftpd estándar(dual_log_enable):</label>
+                            </div>
+                            <select class="form-select" id="t29">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s30">
+                                <label class="form-check-label" for="s30">Habilitar la información
+                                    del estado de la sesión(setproctitle_enable):</label>
+                            </div>
+                            <select class="form-select" id="t30">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="transferencia" class="text-center bg-transparent">
+                <h5 class="card-title">
+                    ##################### <br>
+                    # Transfer Settings # <br>
+                    ##################### <br>
+                </h5>
+                <div class="row mb-3">
+                    <div class="col-3 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s31">
+                                <label class="form-check-label" for="s31">Activar puerto 20 para la
+                                    transferencia(connect_from_port_20):</label>
+                            </div>
+                            <select class="form-select" id="t31">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s32">
+                                <label class="form-check-label" for="s32"> Tiempo de espera para
+                                    sesiòn inactiva(idle_session_timeout):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t32" value="600">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s33">
+                                <label class="form-check-label" for="s33">Tiempo de espera de una conexión de
+                                    datos(data_connection_timeout):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t33" value="120">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s34">
+                                <label class="form-check-label" for="s34">Reconocer las solicitudes
+                                    ABOR asincrónicas(async_abor_enable):</label>
+                            </div>
+                            <select class="form-select" id="t34">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3 border-end border-3">
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s35">
+                                <label class="form-check-label" for="s35">Permitir el modo
+                                    ASCII(ascii_upload_enable):</label>
+                            </div>
+                            <select class="form-select" id="t35">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s36">
+                                <label class="form-check-label" for="s36">Permitir el modo
+                                    ASCII(ascii_download_enable):</label>
+                            </div>
+                            <select class="form-select" id="t36">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s37">
+                                <label class="form-check-label" for="s37">Establecer metodo PASV para
+                                    conexion de datos(pasv_enable):</label>
+                            </div>
+                            <select class="form-select" id="t37">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s38">
+                                <label class="form-check-label" for="s38">Configuración de
+                                    PAM:(pam_service_name):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t38" value="vsftpd">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s39">
+                                <label class="form-check-label" for="s39">Ejecutar vsftpd en modo
+                                    independiente y
+                                    escucha en sockets IPv4(listen):</label>
+                            </div>
+                            <select class="form-select" id="t39">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3 border-end border-3">                        
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s40">
+                                <label class="form-check-label" for="s40">Ejecutar vsftpd en modo
+                                    independiente y
+                                    escucha en sockets IPv4 e IPv6(listen_ipv6):</label>
+                            </div>
+                            <select class="form-select" id="t40">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s41">
+                                <label class="form-check-label" for="s41">para habilitar la
+                                    compatibilidad con SSL(ssl_enable):</label>
+                            </div>
+                            <select class="form-select" id="t41">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s42">
+                                <label class="form-check-label" for="s42">rsa_cert_file:</label>
+                            </div>
+                            <input type="text" class="form-control" id="t42" value="">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s43">
+                                <label class="form-check-label" for="s43">dsa_cert_file:</label>
+                            </div>
+                            <input type="text" class="form-control" id="t43" value="">
+                        </div>
+                    </div>
+                    <div class="col-3 border-end border-3">                        
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s44">
+                                <label class="form-check-label" for="s44">Limite los puertos
+                                    pasivos(pasv_min_port):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t44" value="30000">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s45">
+                                <label class="form-check-label" for="s45">Limite los puertos
+                                    pasivos(pasv_max_port):</label>
+                            </div>
+                            <input type="text" class="form-control" id="t45" value="30100">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch text-start">
+                                <input class="form-check-input" type="checkbox" id="s46">
+                                <label class="form-check-label" for="s46">agrega una capa de
+                                    seguridad adicional que limita el número de
+                                    syscalls se pueden realizar a través de vsftpd(seccomp_sandbox):</label>
+                            </div>
+                            <select class="form-select" id="t46">
+                                <option value="1">Si</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="card-footer text-end">
+                <br>
+                <a href="#" class="btn btn-lg btn-warning">Cargar datos recomendados</a>
+                <a href="#" class="btn btn-lg btn-success">Guardar cambios</a>
+                <br>
+                <br>
+            </div>
+
+        </main>
+    </div>
+
+
+    <script type="module">
+        let s1 = doc.getElementById("s1");
+        let s2 = doc.getElementById("s1");
+
+        var checkbox = document.querySelector("input[name=checkbox]");
+        checkbox.addEventListener( 'change', function() {
+        if(this.checked) {
+            alert("esta activado");
+        } else {
+            // Checkbox is not checked..
+            alert("esta desactivado");
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
