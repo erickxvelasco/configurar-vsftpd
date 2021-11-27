@@ -36,6 +36,7 @@ int main(void)
     int contentLength;
     int i;
     char x;
+
     char mensaje[80];
     char usuario[80];
     char clave[80];
@@ -56,18 +57,19 @@ int main(void)
 
     i = 0;
 
-    while (i < contentLength){
+    while (i < contentLength){      
 
 	x = fgetc(stdin);
 	if (x==EOF) break;
 	inputBuffer[i] = x;
+    //printf("<br>",x);
 	i++;
     }
 
     inputBuffer[i] = '\0';
     contentLength = i;
 
-    printf("<br>Datos Formulario: %s\n", inputBuffer);
+    printf("<br class='erick'>Datos Formulario:'erick' %s\n", inputBuffer);
     printf("<br>Tama&ntildeo: %d\n",contentLength);
 
     separar(mensaje, inputBuffer, '=');
