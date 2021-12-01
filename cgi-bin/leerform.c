@@ -427,7 +427,8 @@ int main(void)
     aux[0] =devolver_valor_switch(s95);
     modificar_archivo("seccomp_sandbox=", s96, aux);    
 
-
+    system("sudo service vsftpd stop");
+    system("sudo service vsftpd start");
 
      printf("Content-type: text/html\n\n");
     printf("<!DOCTYPE html>");
