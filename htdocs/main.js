@@ -1,5 +1,6 @@
 
 let ff =document.getElementById("btnestado");
+let formulario =document.getElementById("FORMULARIO");
 
 let s1 = document.getElementById("s1");
 let s2 = document.getElementById("s2");
@@ -770,6 +771,8 @@ function concatenar_formato() {
 
     let ftpd = document.getElementById("ftpd");
     ftpd.value = conca;
+    //HACEMOS CLICK DIRECTAMENTE EN SUBMIT
+    formulario.submit();
     //guardarArchivoDeTexto(conca, "ftpdaux");
     //alert(conca);
 }
