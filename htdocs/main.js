@@ -1,6 +1,5 @@
-//cargamos los switch
-function CARGAR_EVENTOS(){
 
+let ff =document.getElementById("btnestado");
 
 let s1 = document.getElementById("s1");
 let s2 = document.getElementById("s2");
@@ -149,6 +148,16 @@ s45.onchange = cambioestadoswitch;
 s46.onchange = cambioestadoswitch;
 s47.onchange = cambioestadoswitch;
 
+ff.onclick=concatenar_formato;
+
+function cargar_switch(){
+    var i=0;
+    for (i=1;i<48;i++){
+        let sw=document.getElementById("s" + i);
+        cambioestadoswitch(sw);
+    }
+}
+
 function cambioestadoswitch(evento) {
     var id_aux = this.id;
 
@@ -160,8 +169,7 @@ function cambioestadoswitch(evento) {
             elemento_aux1.disabled = false;
         } else {
             elemento_aux.disabled = true;
-            elemento_aux1.disabled = true;
-            concatenar_formato();
+            elemento_aux1.disabled = true;            
         }
     } else {
         let elemento_aux2 = document.getElementById("t" + id_aux.slice(1));
@@ -758,7 +766,7 @@ function concatenar_formato() {
     conca = conca + '&' + aux;
     conca = conca + '&';
 
-
+    alert(conca);
 
     let ftpd = document.getElementById("ftpd");
     ftpd.value = conca;
@@ -774,4 +782,9 @@ const guardarArchivoDeTexto = (contenido, nombre) => {
     a.click();
     URL.revokeObjectURL(url);
 }
-}
+
+//ESTOY AQUI, ME FALTA VOLVER A COMPILAR
+//RESTAURAR VSFTPD
+//BUSCAR LA FORMA DE CONCATENAR
+//OJO NO ESTA FUNCIONANDO EL BUSCAR PROCESO,CREO QUE SIEMPRE DEVUELVE ALGO
+//PROBAR CON LIMPIAR LA VARIABLE PID

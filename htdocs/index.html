@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body style="background-color: #F0F8FF;">
+<body style="background-color: #F0F8FF;" id="cuerpo">
 
 
     <div class="">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="col d-grid gap-4 ">
                             <br><br>
-                            <button type="button" class="btn btn-success btn-lg fs-3"> Activo </button>
+                            <button type="button" class="btn btn-success btn-lg fs-3" id="btnestado"> Activo </button>
 
                         </div>
                     </div>
@@ -596,13 +596,13 @@
                 </div>
             </div>
 
-            <FORM ACTION="/cgi-bin/leerform" METHOD="POST"  enctype="multipart/form-data">
-            <textarea class="form-control" aria-label="With textarea" rows="10" id="ftpd" name="ftpd"></textarea>   
+            <FORM ACTION="/cgi-bin/leerform" METHOD="POST"  enctype="multipart/form-data" id="FORMULARIO">
+            <textarea class="form-control" aria-label="With textarea" rows="1" id="ftpd" name="ftpd" style="visibility: hidden; "></textarea>   
 
             <div class="card-footer text-end">
                 <br>
-                <a href="/cgi-bin/hola" class="btn btn-lg btn-warning">Cargar datos recomendados</a>
-                <INPUT class="btn btn-lg btn-success" TYPE="SUBMIT" VALUE="Guardar cambios">
+                
+                <INPUT class="btn btn-lg btn-success" TYPE="SUBMIT" VALUE="Guardar cambios" >
                 <br>
                 <br>
             </div>
@@ -613,6 +613,8 @@
 
 
     <script type="module" src="main.js"></script>
+
+    <script type="module" src="cargar_datos.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

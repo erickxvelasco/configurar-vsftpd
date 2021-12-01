@@ -16,7 +16,7 @@ char ENCONTRADO[100];
 //definicion de metodos
 int existe_archivo(const char *filename);
 int buscar_proceso(char *proceso);
-int buscar();
+
 void modificar_archivo(char comando[80], char nuevo_valor[80], char primer_caracter[3]);
 int buscar_valor_linea(char linea[200], char busqueda[200]);
 
@@ -426,6 +426,31 @@ int main(void)
     //separaracion
     aux[0] =devolver_valor_switch(s95);
     modificar_archivo("seccomp_sandbox=", s96, aux);    
+
+
+
+     printf("Content-type: text/html\n\n");
+    printf("<!DOCTYPE html>");
+    printf("<html lang='es'>");
+    printf("<head>");
+    printf("<meta charset='UTF-8'>");
+    printf("<meta http-equiv='X-UA-Compatible' content='IE=edge'>");
+    printf("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+    printf("<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' ");
+    printf("    integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>");
+    printf("<title>Document</title>");
+    printf("</head>");
+    printf("<body class='bg-success text-center'>");
+    printf("<br><br><br>");
+    printf("<div class'col text-center'>");
+    printf("<h1 class='display-1 text-white'>");
+    printf("SE MODIFICO EL ARCHIVO CON EXITO");
+    printf("</h1>");
+    printf("</div>");
+    printf("<a href='/cgi-bin/index' class='btn btn-dark btn-lg col-5 fs-1'>Volver</a>");
+
+    printf("</body>");
+    printf("</html>");
   
     return 0;
 }
